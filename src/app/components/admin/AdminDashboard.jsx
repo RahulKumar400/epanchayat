@@ -4,8 +4,7 @@ import { FaUsers, FaBook, FaBullhorn, FaUpload } from 'react-icons/fa';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 
 import 'react-calendar/dist/Calendar.css';
-import AdminSidebar from './AdminSidebar';
-import AdminNavbar from './AdminNavbar';
+import AdminLayout from './AdminLayout';
 
 const villagersData = [
   { name: 'Male', value: 700 },
@@ -43,17 +42,8 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <AdminSidebar />
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Navbar */}
-        <AdminNavbar username="Admin User" />
-
-        {/* Content Area */}
-        <main className="p-6 overflow-y-auto">
+    <AdminLayout>
+        <main className=" overflow-y-auto">
           {/* Upload Button */}
           <div className="flex justify-end mb-4">
             <button
@@ -238,7 +228,6 @@ export default function Dashboard() {
             </div>
           </div>
         </main>
-      </div>
-    </div>
+      </AdminLayout>
   );
 }

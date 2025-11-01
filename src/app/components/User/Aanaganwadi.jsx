@@ -2,8 +2,7 @@
 
 import React from "react";
 import { FaInfoCircle } from "react-icons/fa";
-import UserNavbar from "./UserNavbar";
-import UserSidebar from "./UserSidebar";
+import UserLayout from "./UserLayout";
 
 // Service data
 const aanganwadiServices = [
@@ -25,15 +24,7 @@ const aanganwadiServices = [
 
 export default function AanganwadiSection() {
   return (
-    <div className="flex min-h-screen bg-gray-100">
-          {/* Sidebar */}
-          <UserSidebar />
-    
-    <div className="flex-1 flex flex-col">
-            {/* Navbar */}
-            <UserNavbar />
-
-    <div className="p-6">
+   <UserLayout>
       <h2 className="text-2xl font-bold text-green-800 mb-6">Aanganwadi Seva</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {aanganwadiServices.map((service) => (
@@ -65,8 +56,6 @@ export default function AanganwadiSection() {
           </div>
         ))}
       </div>
-    </div>
-    </div>
-    </div>
+    </UserLayout>
   );
 }

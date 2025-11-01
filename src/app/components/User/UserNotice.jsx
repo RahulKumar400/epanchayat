@@ -126,10 +126,9 @@
 
 import { useState, useEffect } from "react";
 import { FaBell } from "react-icons/fa";
-import UserNavbar from "./UserNavbar";
-import UserSidebar from "./UserSidebar";
 import { getAllNotices } from "../../apiServices/user/notices"; 
 import { showToast } from "../ToastProvider"; 
+import UserLayout from "./UserLayout";
 
 export default function NoticePage() {
   const [notices, setNotices] = useState([]);
@@ -153,16 +152,8 @@ export default function NoticePage() {
   }, []);
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      {/* Sidebar */}
-      <UserSidebar />
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-auto">
-        {/* Navbar */}
-        <UserNavbar />
-
-        <div className="p-6 bg-green-50 min-h-screen">
+    <UserLayout>
+      <div className=" bg-green-50 min-h-screen">
           {/* Header */}
           <div className="flex items-center gap-3 mb-6">
             <FaBell className="text-green-600 text-2xl" />
@@ -213,7 +204,6 @@ export default function NoticePage() {
             </div>
           )}
         </div>
-      </div>
-    </div>
+      </UserLayout>
   );
 }

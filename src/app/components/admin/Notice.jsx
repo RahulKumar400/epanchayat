@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import AdminSidebar from './AdminSidebar';
 import AdminNavbar from './AdminNavbar';
+import AdminLayout from './AdminLayout';
 
 const dummyNotices = [
   {
@@ -61,15 +62,8 @@ export default function ManageNotices() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <AdminSidebar />
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Navbar */}
-        <AdminNavbar username="Admin User" />
-        <div className="p-6 bg-gray-100 min-h-screen">
+    <AdminLayout>
+        <div className=" bg-gray-100 min-h-screen">
           <h1 className="text-2xl font-bold text-green-700 mb-6">
             Manage Notices & Marquee
           </h1>
@@ -189,7 +183,6 @@ export default function ManageNotices() {
             </table>
           </div>
         </div>
-      </div>
-    </div>
+      </AdminLayout>
   );
 }

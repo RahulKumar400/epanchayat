@@ -201,12 +201,10 @@
 
 
 "use client";
-
 import { useEffect, useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
-import UserNavbar from "./UserNavbar";
-import UserSidebar from "./UserSidebar";
 import { applyForScheme, getSchemes } from "../../apiServices/user/schemes";
+import UserLayout from "./UserLayout";
 
 export default function Schemes() {
   const [schemes, setSchemes] = useState([]); 
@@ -269,13 +267,8 @@ export default function Schemes() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      <UserSidebar />
-
-      <div className="flex-1 flex flex-col overflow-auto">
-        <UserNavbar />
-
-        <div className="p-6 bg-gray-50 min-h-screen">
+    <UserLayout>
+        <div className=" bg-gray-50 min-h-screen">
           <div className="flex items-center justify-between mb-8">
             <h1 className="text-3xl font-bold text-green-800">
               Schemes & Benefits
@@ -404,7 +397,6 @@ export default function Schemes() {
             </div>
           </div>
         )}
-      </div>
-    </div>
+      </UserLayout>
   );
 }

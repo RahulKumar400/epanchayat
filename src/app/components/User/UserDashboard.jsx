@@ -1,9 +1,7 @@
 "use client";
-
-import UserSidebar from "./UserSidebar";
-import UserNavbar from "./UserNavbar";
-import { FaBook, FaHandsHelping, FaBell, FaRegFileAlt, FaSeedling } from "react-icons/fa";
+import { FaHandsHelping, FaBell, FaRegFileAlt, FaSeedling } from "react-icons/fa";
 import Link from "next/link";
+import UserLayout from "./UserLayout";
 
 // Sample data for demonstration
 const seasonalContentCount = 3; 
@@ -14,17 +12,8 @@ const favoriteBooksCount = 7;
 
 export default function UserDashboard() {
   return (
-    <div className="flex h-screen bg-gray-50">
-      {/* Sidebar */}
-      <UserSidebar />
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-auto">
-        {/* Navbar */}
-        <UserNavbar/>
-
-        {/* Dashboard Cards */}
-        <main className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <UserLayout>
+        <main className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* My Requests */}
           <div className="bg-white shadow-md hover:shadow-xl rounded-xl p-6 flex items-center gap-5 transition-shadow duration-300 cursor-pointer transform hover:-translate-y-1">
             <FaRegFileAlt className="text-green-600 text-4xl" />
@@ -95,7 +84,6 @@ export default function UserDashboard() {
             <li>Applied for Kisan Yojana scheme</li>
           </ul>
         </section>
-      </div>
-    </div>
+      </UserLayout>
   );
 }

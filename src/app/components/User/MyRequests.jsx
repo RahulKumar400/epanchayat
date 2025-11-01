@@ -157,13 +157,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import UserNavbar from "./UserNavbar";
-import UserSidebar from "./UserSidebar";
 import {
   createRequest,
   getUserRequests,
 } from "../../apiServices/user/requests";
 import { toast } from "react-toastify";
+import UserLayout from "./UserLayout";
 
 const categories = [
   "Water Supply",
@@ -214,11 +213,7 @@ export default function MyRequests() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      <UserSidebar />
-      <div className="flex-1 flex flex-col overflow-auto">
-        <UserNavbar />
-        <div className="p-6">
+    <UserLayout>
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold text-green-800">My Requests</h2>
             <button
@@ -356,8 +351,6 @@ export default function MyRequests() {
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
-    </div>
+      </UserLayout>
   );
 }

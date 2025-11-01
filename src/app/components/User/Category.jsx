@@ -1,8 +1,7 @@
 'use client';
-import UserSidebar from './UserSidebar';
-import UserNavbar from './UserNavbar';
 import { FaBookOpen } from 'react-icons/fa';
 import Link from 'next/link';
+import UserLayout from './UserLayout';
 
 const categories = [
   { id: 1, title: 'Agriculture', icon: <FaBookOpen />, link: 'booksname' },
@@ -12,16 +11,8 @@ const categories = [
 
 export default function BooksCategoryCardsPage() {
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      {/* Sidebar */}
-      <UserSidebar />
-
-      <div className="flex-1 flex flex-col">
-        {/* Navbar */}
-        <UserNavbar />
-
-        {/* Main Content */}
-        <main className="flex-1 p-6">
+        <UserLayout>
+        <main className="flex-1 ">
           <h1 className="text-2xl font-bold text-green-800 mb-6">
             Resources Categories
           </h1>
@@ -39,7 +30,6 @@ export default function BooksCategoryCardsPage() {
             ))}
           </div>
         </main>
-      </div>
-    </div>
+      </UserLayout>
   );
 }

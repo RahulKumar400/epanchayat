@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import {
-  FaTachometerAlt,
   FaUsers,
   FaGift,
   FaBullhorn,
@@ -9,6 +8,7 @@ import {
   FaUserCog,
   FaSignOutAlt,
 } from "react-icons/fa";
+import { MdOutlineDashboard } from "react-icons/md";
 
 export default function AdminSidebar() {
   return (
@@ -19,8 +19,8 @@ export default function AdminSidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 p-4 space-y-3 overflow-y-auto">
-        <SidebarLink href="/admindashboard" icon={<FaTachometerAlt />} text="Dashboard" />
+      <nav className="flex-1 p-4 space-y-3">
+        <SidebarLink href="/admindashboard" icon={<MdOutlineDashboard />} text="Dashboard" />
         <SidebarLink href="/citizenrequest" icon={<FaUsers />} text="Citizen Requests" />
         <SidebarLink href="/scheme" icon={<FaGift />} text="Schemes & Benefits" />
         <SidebarLink href="/notice" icon={<FaBullhorn />} text="Manage Notices" />
@@ -29,7 +29,7 @@ export default function AdminSidebar() {
       </nav>
 
       {/* Logout Button */}
-      <div className="p-4">
+      <div className="p-4 border-t border-green-700">
         <Link
           href="/"
           className="flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"

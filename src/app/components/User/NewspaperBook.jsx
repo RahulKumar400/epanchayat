@@ -1,8 +1,7 @@
 'use client';
-import UserSidebar from './UserSidebar';
-import UserNavbar from './UserNavbar';
 import { FaBook, FaVideo, FaRegFileAlt } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
+import UserLayout from './UserLayout';
 
 const books = [
   {
@@ -52,11 +51,8 @@ export default function NewspaperListPage() {
   }, [selectedBook]);
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      <UserSidebar />
-      <div className="flex-1 flex flex-col">
-        <UserNavbar username="User Name" />
-        <main className="flex-1 p-6">
+    <UserLayout>
+        <main className="flex-1">
           <h1 className="text-2xl font-bold text-green-800 mb-6">Newspaper</h1>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -110,7 +106,6 @@ export default function NewspaperListPage() {
             </div>
           )}
         </main>
-      </div>
-    </div>
+      </UserLayout>
   );
 }
